@@ -52,3 +52,8 @@ dotnet tool install dotnet-ef --version 6.0.3 --global
 dotnet ef migrations add CreateIdentitySchema
 dotnet ef database update
 ```
+
+Esse comando adiciona ao projeto os arquivos de registro do usuário a serem modificados:
+```shell
+dotnet aspnet-codegenerator identity --dbContext RazorPagesPizzaAuth --files "Account.Manage.EnableAuthenticator;Account.Manage.Index;Account.Register;Account.ConfirmEmail" --userClass RazorPagesPizzaUser --force
+```
