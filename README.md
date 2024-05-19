@@ -32,3 +32,23 @@ Privacy information can be found at https://privacy.microsoft.com/en-us/
 
 Microsoft and any contributors reserve all other rights, whether under their respective copyrights, patents,
 or trademarks, whether by implication, estoppel or otherwise.
+
+# Comandos utilizados no desenvolvimento
+
+Esses comandos fazem o projeto ter suporte ao Identity e construir uma autenticação de usuário padrão.
+```shell
+dotnet tool install dotnet-aspnet-codegenerator --version 6.0.2 --global
+
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 6.0.2
+dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore --version 6.0.3
+dotnet add package Microsoft.AspNetCore.Identity.UI --version 6.0.3
+dotnet add package Microsoft.EntityFrameworkCore.Design --version 6.0.3
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 6.0.3
+
+dotnet aspnet-codegenerator identity --useDefaultUI --dbContext RazorPagesPizzaAuth
+
+dotnet build
+dotnet tool install dotnet-ef --version 6.0.3 --global
+dotnet ef migrations add CreateIdentitySchema
+dotnet ef database update
+```
